@@ -50,14 +50,30 @@ public class WebTablePage extends BasePage {
 
         Integer actualtablesize = actualentries.size();
 
-        add.click();
-        firstname.sendKeys(firstnamevalue);
-        lastname.sendKeys(lastnamevalue);
-        email.sendKeys(emailvalue);
-        age.sendKeys(agevalue);
-        salary.sendKeys(salaryvalue);
-        deparment.sendKeys(departmentvalue);
-        submit.click();
+        elementMethods.clickElement(add);
+//        add.click();
+
+
+        elementMethods.fillElement(firstname, firstnamevalue);
+//        firstname.sendKeys(firstnamevalue);
+
+        elementMethods.fillElement(lastname, lastnamevalue);
+//        lastname.sendKeys(lastnamevalue);
+
+        elementMethods.fillElement(email, emailvalue);
+//        email.sendKeys(emailvalue);
+
+        elementMethods.fillElement(age, agevalue);
+//        age.sendKeys(agevalue);
+
+        elementMethods.fillElement(salary,salaryvalue);
+//        salary.sendKeys(salaryvalue);
+
+        elementMethods.fillElement(deparment, departmentvalue);
+//        deparment.sendKeys(departmentvalue);
+
+        elementMethods.clickElement(submit);
+//        submit.click();
 
         validateNewEntry(actualtablesize, firstnamevalue, lastnamevalue, emailvalue, agevalue, salaryvalue, departmentvalue);
 

@@ -18,15 +18,22 @@ public class FramePage extends BasePage {
 
     public void interractFirstIFrame(){
 
-        driver.switchTo().frame("frame1");
+        frameMethods.switchToFrame("frame1");
+        frameMethods.switchMainFrame();
+
+//        driver.switchTo().frame("frame1");
         System.out.println(frameText.getText());
-        driver.switchTo().defaultContent();
+//        driver.switchTo().defaultContent();
     }
 
     public void interractSecondIFrame(){
 
-        driver.switchTo().frame("frame2");
-        System.out.println(frameText.getText());
+        frameMethods.switchToFrame("frame2");
+        frameMethods.switchMainFrame();
+
+
+//        driver.switchTo().frame("frame2");
+//        System.out.println(frameText.getText());
     }
 
 }

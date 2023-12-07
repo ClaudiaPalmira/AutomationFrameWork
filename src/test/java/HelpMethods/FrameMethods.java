@@ -12,10 +12,11 @@ public class FrameMethods {
         this.driver = driver;
     }
 
-    public void interractFirstIFrame(){
+    public void switchToFrame(String value){
+        driver.switchTo().frame(value);
+    }
 
-        driver.switchTo().frame("frame1");
-        System.out.println(frameText.getText());
+    public void switchMainFrame(){
         driver.switchTo().defaultContent();
     }
 

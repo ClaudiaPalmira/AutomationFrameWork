@@ -1,6 +1,7 @@
 package Pages.Forms;
 
 import Pages.BasePage;
+import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -95,32 +96,39 @@ public class PracticeFormsPage extends BasePage {
     }
 
     public void fillFirstName(String firstnamevalue){
-        firstname.sendKeys(firstnamevalue);
+        elementMethods.fillElement(firstname, firstnamevalue); // nu am castigat linii de cod dar am reusit GENERALIZAREA ACTIUNII
+//        firstname.sendKeys(firstnamevalue);
     }
 
     public void filldLastName(String lastnamevalue){
-        lastname.sendKeys(lastnamevalue);
+        elementMethods.fillElement(lastname, lastnamevalue );
+//        lastname.sendKeys(lastnamevalue);
     }
 
     public void fillemail(String emailvalue){
-        email.sendKeys(emailvalue);
+        elementMethods.fillElement(email, emailvalue);
+//        email.sendKeys(emailvalue);
     }
 
     public void fillgender(){
-        gender.click();
+        elementMethods.clickElement(gender);
+//        gender.click();
     }
 
     public void fillmobile(String mobilevalue){
-        mobile.sendKeys(mobilevalue);
+        elementMethods.fillElement(mobile, mobilevalue);
+//        mobile.sendKeys(mobilevalue);
     }
 
     public void fillsubjects(String subjectsvalue){
-        subjects.sendKeys(subjectsvalue);
-        subjects.sendKeys(Keys.ENTER);
+        elementMethods.fillElement(subjects, subjectsvalue, Keys.ENTER);
+//        subjects.sendKeys(subjectsvalue);
+//        subjects.sendKeys(Keys.ENTER);
     }
 
     public void fillhobbies(){
-        hobbies.click();
+        elementMethods.clickElement(hobbies);
+//      hobbies.click();
     }
 
     public void fillphoto(){
@@ -129,30 +137,39 @@ public class PracticeFormsPage extends BasePage {
     }
 
     public void filladdress(String addressvalue){
-        address.sendKeys(addressvalue);
+        elementMethods.fillElement(address, addressvalue);
+//      address.sendKeys(addressvalue);
     }
 
     public void fillstate(String statevalue){
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("window.scrollBy(0,450)");
-        state.click();
-        selectstate.sendKeys(statevalue);
-        selectstate.sendKeys(Keys.ENTER);
+
+        elementMethods.scrollByPixel(0,450);
+        elementMethods.clickElement(state);
+        elementMethods.fillElement(selectstate, statevalue, Keys.ENTER);
+//        JavascriptExecutor jse = (JavascriptExecutor) driver;
+//        jse.executeScript("window.scrollBy(0,450)");
+//        state.click();
+//        selectstate.sendKeys(statevalue);
+//        selectstate.sendKeys(Keys.ENTER);
     }
 
     public void fillcity(String cityvalue){
-        city.click();
-        selectcity.sendKeys(cityvalue);
-        selectcity.sendKeys(Keys.ENTER);
+        elementMethods.clickElement(city);
+        elementMethods.fillElement(selectcity, cityvalue, Keys.ENTER);
+//        city.click();
+//        selectcity.sendKeys(cityvalue);
+//        selectcity.sendKeys(Keys.ENTER);
     }
 
     public void fillsubmit(){
-        JavascriptExecutor jse = (JavascriptExecutor) driver;
-        jse.executeScript("arguments[0].click();", submit);
+        elementMethods.clickJsElement(submit);
+//        JavascriptExecutor jse = (JavascriptExecutor) driver;
+//        jse.executeScript("arguments[0].click();", submit);
     }
 
     public void clickClose(){
-        closebutton.sendKeys(Keys.ENTER);
+        elementMethods.fillElement(closebutton, Keys.ENTER); //AICI DE VERIF DACA E OK, AM MAI FACUT O METODA PT WEB ELEMENT SI ENTER
+//        closebutton.sendKeys(Keys.ENTER);
     }
 
     public void validatePracticeForm(String expectedMessage, String firstnamevalue, String lastnamevalue, String emailvalue,
@@ -163,8 +180,10 @@ public class PracticeFormsPage extends BasePage {
         LocalDateTime now = LocalDateTime.now();
         String dateofbirthvalue = dtf.format(now);
 
-        String actualmessage = thanksmessage.getText();
-        Assert.assertEquals(actualmessage, expectedMessage);
+        elementMethods.validateElementMessage(thanksmessage,expectedMessage);
+
+//        String actualmessage = thanksmessage.getText();
+//        Assert.assertEquals(actualmessage, expectedMessage);
 
         Assert.assertTrue(validationtable.get(0).getText().contains("Student Name"));
         Assert.assertTrue(validationtable.get(0).getText().contains(firstnamevalue + " " + lastnamevalue));
