@@ -12,9 +12,11 @@ import java.time.Duration;
 
 public class ShareData {
 
+    //o clasa de baza in care poti sa salvezi informaii ce vor fi vizibile in tot proiectul
+
     private WebDriver driver;
 
-    @BeforeMethod
+//    @BeforeMethod  // se va executa ca o preconditie inaintea testului efectiv
 
     public void setUp (){
 
@@ -29,7 +31,7 @@ public class ShareData {
     }
 
 
-    @AfterMethod
+//    @AfterMethod  // post conditii - inchide driver-ul respectiv
     public void clear (){
         driver.quit();
 

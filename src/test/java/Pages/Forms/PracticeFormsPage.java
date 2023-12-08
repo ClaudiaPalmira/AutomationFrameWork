@@ -1,5 +1,6 @@
 package Pages.Forms;
 
+import ObjectData.FormTableObject;
 import Pages.BasePage;
 import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.*;
@@ -72,20 +73,20 @@ public class PracticeFormsPage extends BasePage {
 
 
 
-    public void fillPracticeForm(String firstname, String lastname, String email, String mobile, String subjects,
-                                 String address, String state, String city){
+    public void fillPracticeForm(FormTableObject formTableObject){
 
-        fillFirstName(firstname);
-        filldLastName(lastname);
-        fillemail(email);
+        fillFirstName(formTableObject.getFirstNameValue());
+        filldLastName(formTableObject.getLastNameValue());
+        fillemail(formTableObject.getEmailvalue());
         fillgender();
-        fillmobile(mobile);
-        fillsubjects(subjects);
+        fillmobile(formTableObject.getMobilevalue());
+        fillsubjects(formTableObject.getSubjectsvalue());
+        elementMethods.scrollByPixel(0,400);
         fillhobbies();
         fillphoto();
-        filladdress(address);
-        fillstate(state);
-        fillcity(city);
+        filladdress(formTableObject.getAddressvalue());
+        fillstate(formTableObject.getStatevalue());
+        fillcity(formTableObject.getCityvalue());
     }
 
     public List<String> getValuesForm(){
@@ -144,7 +145,7 @@ public class PracticeFormsPage extends BasePage {
     public void fillstate(String statevalue){
 
         elementMethods.scrollByPixel(0,450);
-        elementMethods.clickElement(state);
+        elementMethods.clickJsElement(state);
         elementMethods.fillElement(selectstate, statevalue, Keys.ENTER);
 //        JavascriptExecutor jse = (JavascriptExecutor) driver;
 //        jse.executeScript("window.scrollBy(0,450)");
@@ -154,7 +155,7 @@ public class PracticeFormsPage extends BasePage {
     }
 
     public void fillcity(String cityvalue){
-        elementMethods.clickElement(city);
+        elementMethods.clickJsElement(city);
         elementMethods.fillElement(selectcity, cityvalue, Keys.ENTER);
 //        city.click();
 //        selectcity.sendKeys(cityvalue);
