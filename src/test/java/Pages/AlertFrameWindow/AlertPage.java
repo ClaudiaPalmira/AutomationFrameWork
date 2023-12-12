@@ -1,5 +1,6 @@
 package Pages.AlertFrameWindow;
 
+import ObjectData.AlertObject;
 import Pages.BasePage;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -57,10 +58,10 @@ public class AlertPage extends BasePage {
 //        alertConfirmation.dismiss();
     }
 
-    public void interractAlertValue(String value){
+    public void interractAlertValue(AlertObject alertObject){
 
         promtButton.click();
-        alertMethods.fillAlert(value);
+        alertObject.getPromptAlertValue();
 //        Alert alertPromt = driver.switchTo().alert();  //facem switchul pe alerta
 //        alertPromt.sendKeys(value);
 //        alertPromt.accept();
