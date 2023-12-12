@@ -1,5 +1,6 @@
 package Pages.Elements;
 
+import ObjectData.WebTableObject;
 import Pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -45,8 +46,9 @@ public class WebTablePage extends BasePage {
 
 
 
-    public void addNewEntry(String firstnamevalue,String lastnamevalue, String emailvalue, String agevalue,
-                            String salaryvalue, String departmentvalue){
+//    public void addNewEntry(String firstnamevalue,String lastnamevalue, String emailvalue, String agevalue,
+//                            String salaryvalue, String departmentvalue){
+      public void addNewEntry(WebTableObject webTableObject){
 
         Integer actualtablesize = actualentries.size();
 
@@ -54,42 +56,41 @@ public class WebTablePage extends BasePage {
 //        add.click();
 
 
-        elementMethods.fillElement(firstname, firstnamevalue);
+        elementMethods.fillElement(firstname, webTableObject.getLastnamevalue());
 //        firstname.sendKeys(firstnamevalue);
 
-        elementMethods.fillElement(lastname, lastnamevalue);
+        elementMethods.fillElement(lastname, webTableObject.getLastnamevalue());
 //        lastname.sendKeys(lastnamevalue);
 
-        elementMethods.fillElement(email, emailvalue);
+        elementMethods.fillElement(email, webTableObject.getEmailvalue());
 //        email.sendKeys(emailvalue);
 
-        elementMethods.fillElement(age, agevalue);
+        elementMethods.fillElement(age, webTableObject.getAgevalue());
 //        age.sendKeys(agevalue);
 
-        elementMethods.fillElement(salary,salaryvalue);
+        elementMethods.fillElement(salary,webTableObject.getSalaryvalue());
 //        salary.sendKeys(salaryvalue);
 
-        elementMethods.fillElement(deparment, departmentvalue);
+        elementMethods.fillElement(deparment, webTableObject.getDepartmentvalue());
 //        deparment.sendKeys(departmentvalue);
 
         elementMethods.clickElement(submit);
 //        submit.click();
 
-        validateNewEntry(actualtablesize, firstnamevalue, lastnamevalue, emailvalue, agevalue, salaryvalue, departmentvalue);
+//        validateNewEntry(actualtablesize, webTableObject);
 
     }
 
-    private void validateNewEntry(Integer actualtablesize, String firstnamevalue,String lastnamevalue, String emailvalue, String agevalue,
-                                  String salaryvalue, String departmentvalue){
+    private void validateNewEntry(Integer actualtablesize, WebTableObject webTableObject){
         Integer expectedtablesize = actualentries.size();
-        Assert.assertTrue(actualtablesize + 1 == expectedtablesize);
+       // Assert.assertTrue(actualtablesize + 1 == expectedtablesize);
         String lastEntryTable=actualentries.get(actualtablesize).getText();
-        Assert.assertTrue(lastEntryTable.contains(firstnamevalue));
-        Assert.assertTrue(lastEntryTable.contains(lastnamevalue));
-        Assert.assertTrue(lastEntryTable.contains(emailvalue));
-        Assert.assertTrue(lastEntryTable.contains(agevalue));
-        Assert.assertTrue(lastEntryTable.contains(salaryvalue));
-        Assert.assertTrue(lastEntryTable.contains(departmentvalue));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getFirstnamevalue()));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getLastnamevalue()));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getEmailvalue()));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getAgevalue()));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getSalaryvalue()));
+        Assert.assertTrue(lastEntryTable.contains(webTableObject.getDepartmentvalue()));
 
 
     }

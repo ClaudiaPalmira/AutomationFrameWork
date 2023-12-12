@@ -14,7 +14,7 @@ public class Hooks extends ShareData{  // va avea ca rol sa aduca impreuna toate
     @BeforeMethod
 
     public void prepareEnvironment(){
-        setUp();
+        setUp();  //apare metoda de setup fiindca avem extends ShareData
         String testName = this.getClass().getSimpleName();
         PropertyUtility propertyUtility = new PropertyUtility(testName);
         testData = propertyUtility.getAllData();
@@ -24,6 +24,6 @@ public class Hooks extends ShareData{  // va avea ca rol sa aduca impreuna toate
     @AfterMethod
 
     public void clearEnvironment(){
-        clear();
+        clear();  // tot asa, apare clear fiindca avem extends ShareData
     }
 }

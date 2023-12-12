@@ -29,7 +29,6 @@ public class FormTableTest extends Hooks { //in loc de Share Data am pus Hooks
        formsPage.clickPracticeForm();
 
 
-        PracticeFormsPage practiceFormsPage = new PracticeFormsPage(getDriver());
 //        String firstnamevalue= "Claudia";
 //        String lastnamevalue= "Gologan";
 //        String emailvalue= "palmira_clau@yahoo.com";
@@ -43,6 +42,7 @@ public class FormTableTest extends Hooks { //in loc de Share Data am pus Hooks
 //        practiceFormsPage.fillPracticeForm(firstnamevalue, lastnamevalue, emailvalue, mobilevalue, subjectsvalue, addressvalue,
 //                statevalue, cityvalue);
 
+        PracticeFormsPage practiceFormsPage = new PracticeFormsPage(getDriver());
         practiceFormsPage.fillPracticeForm(formTableObject);
 
         List<String> Formvalues = practiceFormsPage.getValuesForm();

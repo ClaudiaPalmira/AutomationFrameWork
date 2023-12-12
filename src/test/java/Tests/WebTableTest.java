@@ -1,16 +1,22 @@
 package Tests;
 
+import ObjectData.FormTableObject;
+import ObjectData.WebTableObject;
 import Pages.Elements.ElementsPage;
+import Pages.Forms.PracticeFormsPage;
 import Pages.HomePage;
 import Pages.Elements.WebTablePage;
 import ShareData.ShareData;
+import ShareData.Hooks;
 import org.testng.annotations.Test;
 
-public class WebTableTest extends ShareData {
+public class WebTableTest extends Hooks {
 
     @Test
 
     public void testMethod() {
+
+        WebTableObject webTableObject = new WebTableObject(testData);
 
 
        // WebElement elements = driver.findElement(By.xpath("//h5[text()='Elements']"));
@@ -27,16 +33,19 @@ public class WebTableTest extends ShareData {
         ElementsPage elementsPage = new ElementsPage(getDriver());
         elementsPage.clickWebTables();
 
-        String firstnamevalue = "Claudia";
-        String lastnamevalue = "Gologan";
-        String emailvalue = "claudiapalmiragologan@gmail.com";
-        String agevalue = "20";
-        String salaryvalue = "30000";
-        String departmentvalue = "IT";
+//        String firstnamevalue = "Claudia";
+//        String lastnamevalue = "Gologan";
+//        String emailvalue = "claudiapalmiragologan@gmail.com";
+//        String agevalue = "20";
+//        String salaryvalue = "30000";
+//        String departmentvalue = "IT";
 
 
         WebTablePage webTablePage = new WebTablePage(getDriver());
-        webTablePage.addNewEntry(firstnamevalue, lastnamevalue, emailvalue, agevalue, salaryvalue, departmentvalue);
+//        webTablePage.addNewEntry(webTableObject);
+
+        webTablePage.addNewEntry(webTableObject);
+
 
 
        // List<WebElement> actualentries = driver.findElements(By.xpath("//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even'] "));

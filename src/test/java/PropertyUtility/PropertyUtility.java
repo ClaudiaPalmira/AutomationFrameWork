@@ -10,23 +10,39 @@ public class PropertyUtility {
 
     public Properties properties;
 
-    public PropertyUtility(String fileName){
+    public PropertyUtility(String fileName) {
         loadDataFile(fileName);
 
     }
 
     //Metoda care incarca un fisier de tip "Properties"
 
-    private void loadDataFile(String filetName){
-        properties = new Properties();  //initializam obiectul
+//    private void loadDataFile(String filetName){
+//        properties = new Properties();  //initializam obiectul
+//        FileInputStream fileInputStream = null;
+//        try {
+//            fileInputStream = new FileInputStream( "src/test/resources/TestData/FormTableTestData.properties");
+//            properties.load(fileInputStream);
+//        } catch (IOException ignored) {
+//        }
+//
+//    }
+
+    private void loadDataFile(String fileName) {
+        properties = new Properties();  //este obiectul care se ocupa sa ia fisierul si sa-l transforme in properties
         FileInputStream fileInputStream = null;
         try {
-            fileInputStream = new FileInputStream( "src/test/resources/TestData/FormTableTestData.properties");
+
+            //trebuie generalizata linia de mai jos
+            fileInputStream = new FileInputStream("src/test/resources/TestData/"+fileName+"Data.properties");
             properties.load(fileInputStream);
-        } catch (IOException ignored) {
+        }
+        catch (IOException ignored) {
+
         }
 
     }
+
 
     //Metoda care returneaza toate datele din fisierul de "Properties"
 
