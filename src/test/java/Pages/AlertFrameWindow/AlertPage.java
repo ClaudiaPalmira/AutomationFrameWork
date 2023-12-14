@@ -34,16 +34,22 @@ public class AlertPage extends BasePage {
 
     public void interractAlertOK(){
 
-        alertaOkButton.click();
+        elementMethods.clickElement(alertaOkButton);
         alertMethods.acceptAlert();
+
+//        alertaOkButton.click();
+//        alertMethods.acceptAlert();
 //        Alert alertok = driver.switchTo().alert();
 //        alertok.accept();
     }
 
     public void interractAlertDelay(){
 
-        alertDelayButton.click();
+        elementMethods.clickElement(alertDelayButton);
         alertMethods.acceptAlert();
+
+//        alertDelayButton.click();
+//        alertMethods.acceptAlert();
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 //        wait.until(ExpectedConditions.alertIsPresent());
 //        Alert alertDelay = driver.switchTo().alert();
@@ -52,16 +58,22 @@ public class AlertPage extends BasePage {
 
     public void interractAlertDismiss(){
 
-        confirmButton.click();
+        elementMethods.clickElement(confirmButton);
         alertMethods.cancelAlert();
+
+//        confirmButton.click();
+//        alertMethods.cancelAlert();
 //        Alert alertConfirmation = driver.switchTo().alert();
 //        alertConfirmation.dismiss();
     }
 
     public void interractAlertValue(AlertObject alertObject){
 
-        promtButton.click();
-        alertObject.getPromptAlertValue();
+        elementMethods.clickElement(promtButton);
+        alertMethods.fillAlert(alertObject.getPromptAlertValue());
+
+//        promtButton.click();
+//        alertObject.getPromptAlertValue();
 //        Alert alertPromt = driver.switchTo().alert();  //facem switchul pe alerta
 //        alertPromt.sendKeys(value);
 //        alertPromt.accept();

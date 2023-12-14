@@ -18,7 +18,7 @@ public class WebTablePage extends BasePage {
     }
 
     @FindBy(xpath = "//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even'] ")
-    private List<WebElement> actualentries;
+    private List<WebElement> actualEntries;
 
     @FindBy(id = "addNewRecordButton")
     private WebElement add;
@@ -50,11 +50,10 @@ public class WebTablePage extends BasePage {
 //                            String salaryvalue, String departmentvalue){
       public void addNewEntry(WebTableObject webTableObject){
 
-        Integer actualtablesize = actualentries.size();
+        Integer actualtablesize = actualEntries.size();
 
         elementMethods.clickElement(add);
 //        add.click();
-
 
         elementMethods.fillElement(firstname, webTableObject.getLastnamevalue());
 //        firstname.sendKeys(firstnamevalue);
@@ -77,20 +76,25 @@ public class WebTablePage extends BasePage {
         elementMethods.clickElement(submit);
 //        submit.click();
 
-//        validateNewEntry(actualtablesize, webTableObject);
+       validateNewEntry(actualtablesize, webTableObject);
 
     }
 
     private void validateNewEntry(Integer actualtablesize, WebTableObject webTableObject){
-        Integer expectedtablesize = actualentries.size();
-       // Assert.assertTrue(actualtablesize + 1 == expectedtablesize);
-        String lastEntryTable=actualentries.get(actualtablesize).getText();
+
+        Integer expectedtablesize = actualEntries.size();
+        Assert.assertTrue(actualtablesize+1 == expectedtablesize);
+//        Assert.assertEquals(actualtablesize+1, Integer.valueOf(expectedtablesize));
+        String lastEntryTable=actualEntries.get(actualtablesize).getText();
+
         Assert.assertTrue(lastEntryTable.contains(webTableObject.getFirstnamevalue()));
         Assert.assertTrue(lastEntryTable.contains(webTableObject.getLastnamevalue()));
         Assert.assertTrue(lastEntryTable.contains(webTableObject.getEmailvalue()));
         Assert.assertTrue(lastEntryTable.contains(webTableObject.getAgevalue()));
         Assert.assertTrue(lastEntryTable.contains(webTableObject.getSalaryvalue()));
         Assert.assertTrue(lastEntryTable.contains(webTableObject.getDepartmentvalue()));
+
+
 
 
     }
