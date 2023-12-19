@@ -1,5 +1,6 @@
 package Pages.Forms;
 
+import Logger.LoggerUtility;
 import ObjectData.FormTableObject;
 import Pages.BasePage;
 import net.bytebuddy.asm.Advice;
@@ -99,36 +100,43 @@ public class PracticeFormsPage extends BasePage {
     public void fillFirstName(String firstnamevalue){
         elementMethods.fillElement(firstname, firstnamevalue); // nu am castigat linii de cod dar am reusit GENERALIZAREA ACTIUNII
 //        firstname.sendKeys(firstnamevalue);
+        LoggerUtility.info("The user fills firstname with value: " + firstnamevalue);
     }
 
     public void filldLastName(String lastnamevalue){
         elementMethods.fillElement(lastname, lastnamevalue );
 //        lastname.sendKeys(lastnamevalue);
+        LoggerUtility.info("The user fills lastname with value: " + lastnamevalue);
     }
 
     public void fillemail(String emailvalue){
         elementMethods.fillElement(email, emailvalue);
 //        email.sendKeys(emailvalue);
+        LoggerUtility.info("The user fills email with value: " + emailvalue);
     }
 
     public void fillgender(){
         elementMethods.clickElement(gender);
 //        gender.click();
+        LoggerUtility.info("The user clicks on gender " + gender);
     }
 
     public void fillmobile(String mobilevalue){
         elementMethods.fillElement(mobile, mobilevalue);
 //        mobile.sendKeys(mobilevalue);
+        LoggerUtility.info("The user fills mobile with value: " + mobilevalue);
     }
 
     public void fillsubjects(String subjectsvalue){
         elementMethods.fillElement(subjects, subjectsvalue, Keys.ENTER);
+        LoggerUtility.info("The user fills subjects with value: " + subjectsvalue);
 //        subjects.sendKeys(subjectsvalue);
 //        subjects.sendKeys(Keys.ENTER);
     }
 
     public void fillhobbies(){
         elementMethods.clickElement(hobbies);
+        LoggerUtility.info("The user clicks on: " + hobbies);
 //      hobbies.click();
     }
 
@@ -139,14 +147,22 @@ public class PracticeFormsPage extends BasePage {
 
     public void filladdress(String addressvalue){
         elementMethods.fillElement(address, addressvalue);
+        LoggerUtility.info("The user fills address with value: " + address);
+
 //      address.sendKeys(addressvalue);
     }
 
     public void fillstate(String statevalue){
 
         elementMethods.scrollByPixel(0,450);
+        LoggerUtility.info("The user scrolls down the page ");
+
         elementMethods.clickJsElement(state);
+        LoggerUtility.info("The user click on state button");
+
         elementMethods.fillElement(selectstate, statevalue, Keys.ENTER);
+        LoggerUtility.info("The user selects the state " + statevalue);
+
 //        JavascriptExecutor jse = (JavascriptExecutor) driver;
 //        jse.executeScript("window.scrollBy(0,450)");
 //        state.click();
@@ -156,7 +172,10 @@ public class PracticeFormsPage extends BasePage {
 
     public void fillcity(String cityvalue){
         elementMethods.clickJsElement(city);
+        LoggerUtility.info("The user click on city");
+
         elementMethods.fillElement(selectcity, cityvalue, Keys.ENTER);
+        LoggerUtility.info("The user selects the city: " + cityvalue);
 //        city.click();
 //        selectcity.sendKeys(cityvalue);
 //        selectcity.sendKeys(Keys.ENTER);
@@ -164,14 +183,22 @@ public class PracticeFormsPage extends BasePage {
 
     public void fillsubmit(){
         elementMethods.clickJsElement(submit);
+        LoggerUtility.info("The user clicks on submit button: ");
+
 //        JavascriptExecutor jse = (JavascriptExecutor) driver;
 //        jse.executeScript("arguments[0].click();", submit);
     }
 
     public void clickClose(){
         elementMethods.fillElement(closebutton, Keys.ENTER); //AICI DE VERIF DACA E OK, AM MAI FACUT O METODA PT WEB ELEMENT SI ENTER
+        LoggerUtility.info("The user clicks on close button: ");
+
 //        closebutton.sendKeys(Keys.ENTER);
     }
+
+//    public void validatePracticeForm(String expectedMessage, String firstnamevalue, String lastnamevalue, String emailvalue,
+//                                     String gendervalue, String mobilevalue, String subjectsvalue, String hobbiesvalue,
+//                                     String addressvalue, String statevalue, String cityvalue){
 
     public void validatePracticeForm(String expectedMessage, String firstnamevalue, String lastnamevalue, String emailvalue,
                                      String gendervalue, String mobilevalue, String subjectsvalue, String hobbiesvalue,

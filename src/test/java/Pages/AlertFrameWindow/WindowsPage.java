@@ -1,5 +1,6 @@
 package Pages.AlertFrameWindow;
 
+import Logger.LoggerUtility;
 import Pages.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,10 +25,16 @@ public class WindowsPage extends BasePage {
 
     public void interractTab(){
         newTabButton.click();
+        LoggerUtility.info("The user clicks on interractTab button");
 
         windowMethods.switchToSpecificWindow(1);
+        LoggerUtility.info("The user switches to a new tab");
+
         windowMethods.closeCurrentWindow();
+        LoggerUtility.info("The user closes the current tab");
+
         windowMethods.switchToSpecificWindow(0);
+        LoggerUtility.info("The user switches back to the main tab");
 
 //        System.out.println("Url: " + driver.getCurrentUrl());
 //        List<String> tabs = new ArrayList<>(driver.getWindowHandles());  //lista de tab-uri
@@ -39,10 +46,16 @@ public class WindowsPage extends BasePage {
 
     public void interractWindow(){
         newWindowButton.click();
+        LoggerUtility.info("The user clicks on interractWindow button");
 
         windowMethods.switchToSpecificWindow(1);
+        LoggerUtility.info("The user switches to a new window");
+
         windowMethods.closeCurrentWindow();
+        LoggerUtility.info("The user closes the current window");
+
         windowMethods.switchToSpecificWindow(0);
+        LoggerUtility.info("The user switches back tot the main window");
 
 //        System.out.println("Url: " + driver.getCurrentUrl());
 //        List<String> windows = new ArrayList<>(driver.getWindowHandles());

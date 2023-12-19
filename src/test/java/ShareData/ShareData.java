@@ -1,5 +1,6 @@
 package ShareData;
 
+import Logger.LoggerUtility;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -25,6 +26,7 @@ public class ShareData {
         driver.manage().window().maximize();
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        LoggerUtility.info("The browser was opened with success");
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,450)");
@@ -34,6 +36,7 @@ public class ShareData {
 //    @AfterMethod  // post conditii - inchide driver-ul respectiv
     public void clear (){
         driver.quit();
+        LoggerUtility.info("The browser was closed with success");
 
     }
 

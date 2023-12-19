@@ -1,5 +1,6 @@
 package Pages.Elements;
 
+import Logger.LoggerUtility;
 import ObjectData.WebTableObject;
 import Pages.BasePage;
 import org.openqa.selenium.By;
@@ -53,27 +54,35 @@ public class WebTablePage extends BasePage {
         Integer actualtablesize = actualEntries.size();
 
         elementMethods.clickElement(add);
+        LoggerUtility.info("The user clicks on the add button");
 //        add.click();
 
-        elementMethods.fillElement(firstname, webTableObject.getLastnamevalue());
+        elementMethods.fillElement(firstname, webTableObject.getFirstnamevalue());
+        LoggerUtility.info("The user fills firstname field" + firstname);
 //        firstname.sendKeys(firstnamevalue);
 
         elementMethods.fillElement(lastname, webTableObject.getLastnamevalue());
+        LoggerUtility.info("The user fills lastname field" + lastname);
 //        lastname.sendKeys(lastnamevalue);
 
         elementMethods.fillElement(email, webTableObject.getEmailvalue());
+        LoggerUtility.info("The user fills email field" + email);
 //        email.sendKeys(emailvalue);
 
         elementMethods.fillElement(age, webTableObject.getAgevalue());
+        LoggerUtility.info("The user fills age field" + age);
 //        age.sendKeys(agevalue);
 
         elementMethods.fillElement(salary,webTableObject.getSalaryvalue());
+        LoggerUtility.info("The user fills salary field" + salary);
 //        salary.sendKeys(salaryvalue);
 
         elementMethods.fillElement(deparment, webTableObject.getDepartmentvalue());
+        LoggerUtility.info("The user fills department field" + deparment);
 //        deparment.sendKeys(departmentvalue);
 
         elementMethods.clickElement(submit);
+        LoggerUtility.info("The user clicks on submit button");
 //        submit.click();
 
        validateNewEntry(actualtablesize, webTableObject);

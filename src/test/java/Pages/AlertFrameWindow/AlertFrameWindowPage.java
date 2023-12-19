@@ -1,5 +1,6 @@
 package Pages.AlertFrameWindow;
 
+import Logger.LoggerUtility;
 import Pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,14 +25,18 @@ public class AlertFrameWindowPage extends BasePage {
 
     public void clickAlerts (){
         alerts.click();
+        LoggerUtility.info("The user clicks on alerts button");
     }
 
     public void clickFrames(){
+        elementMethods.scrollByPixel(0,300);
         frames.click();
+        LoggerUtility.info("The user clicks on frames button");
     }
 
     public void clickWindows(){
         browserWindows.click();
+        LoggerUtility.info("The user clicks on browserWindows button");
     }
 
 
