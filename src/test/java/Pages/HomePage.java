@@ -1,5 +1,6 @@
 package Pages;
 
+import Logger.LoggerUtility;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +14,7 @@ public class HomePage extends BasePage{
     }
 
     @FindBy(xpath = "//h5[text()='Alerts, Frame & Windows']")
-    private WebElement alertsFrameWindow;
+    public WebElement alertsFrameWindow;
 
     @FindBy(xpath = "//h5[text()='Forms']")
     private WebElement forms;
@@ -21,26 +22,29 @@ public class HomePage extends BasePage{
     @FindBy (xpath = "//h5[text()='Elements']")
     private WebElement elements;
 
-    @FindBy(xpath = "//h5[text()='Widgets']")
-    private WebElement widgets;
+//    @FindBy(xpath = "//h5[text()='Widgets']")
+//    private WebElement widgets;
 
 
 
     public void clickAlertWindow() {
         alertsFrameWindow.click();
+        LoggerUtility.info("The user clicks on alertsFrameWindow button");
     }
 
     public void clickForms(){
         forms.click();
+        LoggerUtility.info("The user clicks on forms button");
     }
 
     public void clickElements(){
         elements.click();
+        LoggerUtility.info("The user clicks on elements button");
     }
 
-    public void clickWidgets(){
-        widgets.click();
-    }
+//    public void clickWidgets(){
+//        widgets.click();
+//    }
 
 
 }

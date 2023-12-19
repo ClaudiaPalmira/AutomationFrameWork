@@ -48,7 +48,7 @@ public class FormTableTest extends Hooks { //in loc de Share Data am pus Hooks
         List<String> Formvalues = practiceFormsPage.getValuesForm();
         practiceFormsPage.fillsubmit();
 
-//        practiceFormsPage.validatePracticeForm(expectedmessage, firstnamevalue, lastnamevalue, emailvalue, Formvalues.get(0),
+  //        practiceFormsPage.validatePracticeForm(expectedmessage, firstnamevalue, lastnamevalue, emailvalue, Formvalues.get(0),
 //                mobilevalue, subjectsvalue, Formvalues.get(1), addressvalue, statevalue, cityvalue);
 
 

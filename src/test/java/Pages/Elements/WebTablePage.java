@@ -1,5 +1,6 @@
 package Pages.Elements;
 
+import Logger.LoggerUtility;
 import ObjectData.WebTableObject;
 import Pages.BasePage;
 import org.openqa.selenium.By;
@@ -18,7 +19,7 @@ public class WebTablePage extends BasePage {
     }
 
     @FindBy(xpath = "//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even'] ")
-    private List<WebElement> actualentries;
+    private List<WebElement> actualEntries;
 
     @FindBy(id = "addNewRecordButton")
     private WebElement add;
@@ -50,47 +51,59 @@ public class WebTablePage extends BasePage {
 //                            String salaryvalue, String departmentvalue){
       public void addNewEntry(WebTableObject webTableObject){
 
-        Integer actualtablesize = actualentries.size();
+        Integer actualtablesize = actualEntries.size();
 
         elementMethods.clickElement(add);
+        LoggerUtility.info("The user clicks on the add button");
 //        add.click();
 
-
-        elementMethods.fillElement(firstname, webTableObject.getLastnamevalue());
+        elementMethods.fillElement(firstname, webTableObject.getFirstnamevalue());
+        LoggerUtility.info("The user fills firstname field" + firstname);
 //        firstname.sendKeys(firstnamevalue);
 
         elementMethods.fillElement(lastname, webTableObject.getLastnamevalue());
+        LoggerUtility.info("The user fills lastname field" + lastname);
 //        lastname.sendKeys(lastnamevalue);
 
         elementMethods.fillElement(email, webTableObject.getEmailvalue());
+        LoggerUtility.info("The user fills email field" + email);
 //        email.sendKeys(emailvalue);
 
         elementMethods.fillElement(age, webTableObject.getAgevalue());
+        LoggerUtility.info("The user fills age field" + age);
 //        age.sendKeys(agevalue);
 
         elementMethods.fillElement(salary,webTableObject.getSalaryvalue());
+        LoggerUtility.info("The user fills salary field" + salary);
 //        salary.sendKeys(salaryvalue);
 
         elementMethods.fillElement(deparment, webTableObject.getDepartmentvalue());
+        LoggerUtility.info("The user fills department field" + deparment);
 //        deparment.sendKeys(departmentvalue);
 
         elementMethods.clickElement(submit);
+        LoggerUtility.info("The user clicks on submit button");
 //        submit.click();
 
-//        validateNewEntry(actualtablesize, webTableObject);
+       validateNewEntry(actualtablesize, webTableObject);
 
     }
 
     private void validateNewEntry(Integer actualtablesize, WebTableObject webTableObject){
-        Integer expectedtablesize = actualentries.size();
-       // Assert.assertTrue(actualtablesize + 1 == expectedtablesize);
-        String lastEntryTable=actualentries.get(actualtablesize).getText();
+
+        Integer expectedtablesize = actualEntries.size();
+        Assert.assertTrue(actualtablesize+1 == expectedtablesize);
+//        Assert.assertEquals(actualtablesize+1, Integer.valueOf(expectedtablesize));
+        String lastEntryTable=actualEntries.get(actualtablesize).getText();
+
         Assert.assertTrue(lastEntryTable.contains(webTableObject.getFirstnamevalue()));
         Assert.assertTrue(lastEntryTable.contains(webTableObject.getLastnamevalue()));
         Assert.assertTrue(lastEntryTable.contains(webTableObject.getEmailvalue()));
         Assert.assertTrue(lastEntryTable.contains(webTableObject.getAgevalue()));
         Assert.assertTrue(lastEntryTable.contains(webTableObject.getSalaryvalue()));
         Assert.assertTrue(lastEntryTable.contains(webTableObject.getDepartmentvalue()));
+
+
 
 
     }

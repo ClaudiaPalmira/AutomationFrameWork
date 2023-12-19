@@ -32,6 +32,8 @@ public class AlertTest extends Hooks {
 
         alertPage.interractAlertValue(alertObject);
 
+//        alertPage.interractAlertValue("tralala");
+
     }
 
 }

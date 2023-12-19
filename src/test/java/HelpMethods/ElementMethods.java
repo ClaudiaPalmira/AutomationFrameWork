@@ -19,7 +19,7 @@ public class ElementMethods {
     }
 
     private void waitVisibleElement(WebElement element){  // se foloseste aceasta metoda pentru a determina site-ul sa astepte sa se incarce elementele in pagina
-        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 

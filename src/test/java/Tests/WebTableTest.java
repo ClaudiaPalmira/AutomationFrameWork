@@ -8,6 +8,7 @@ import Pages.HomePage;
 import Pages.Elements.WebTablePage;
 import ShareData.ShareData;
 import ShareData.Hooks;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
 public class WebTableTest extends Hooks {
@@ -18,6 +19,18 @@ public class WebTableTest extends Hooks {
 
         WebTableObject webTableObject = new WebTableObject(testData);
 
+        HomePage homePage = new HomePage(getDriver());
+        homePage.clickElements();
+
+        JavascriptExecutor JS = (JavascriptExecutor) getDriver();
+        JS.executeScript("window.scrollBy(0,450)", "");
+
+        ElementsPage elementsPage = new ElementsPage(getDriver());
+        elementsPage.clickWebTables();
+
+        WebTablePage webTablePage = new WebTablePage(getDriver());
+        webTablePage.addNewEntry(webTableObject);
+
 
        // WebElement elements = driver.findElement(By.xpath("//h5[text()='Elements']"));
        // JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -27,11 +40,7 @@ public class WebTableTest extends Hooks {
        // WebElement webtables = driver.findElement(By.xpath("//span[text()='Web Tables']"));
        // webtables.click();
 
-        HomePage homePage = new HomePage(getDriver());
-        homePage.clickElements();
 
-        ElementsPage elementsPage = new ElementsPage(getDriver());
-        elementsPage.clickWebTables();
 
 //        String firstnamevalue = "Claudia";
 //        String lastnamevalue = "Gologan";
@@ -39,12 +48,6 @@ public class WebTableTest extends Hooks {
 //        String agevalue = "20";
 //        String salaryvalue = "30000";
 //        String departmentvalue = "IT";
-
-
-        WebTablePage webTablePage = new WebTablePage(getDriver());
-//        webTablePage.addNewEntry(webTableObject);
-
-        webTablePage.addNewEntry(webTableObject);
 
 
 
