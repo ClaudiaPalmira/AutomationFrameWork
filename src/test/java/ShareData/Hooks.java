@@ -18,11 +18,11 @@ public class Hooks extends ShareData{  // va avea ca rol sa aduca impreuna toate
 
     @BeforeMethod
     public void prepareEnvironment(){
-        setUp();  //apare metoda de setup fiindca avem extends ShareData
         testName = this.getClass().getSimpleName();
         PropertyUtility propertyUtility = new PropertyUtility(testName);
         testData = propertyUtility.getAllData();
         LoggerUtility.startTestCase(testName); //apelam METODA STATICA pentru log-uri, nu avem nevoie de obiect
+        setUp();  //apare metoda de setup fiindca avem extends ShareData
     }
 
     @AfterMethod

@@ -14,18 +14,18 @@ public class AlertObject {
         this.promptAlertValue = promptAlertValue;
     }
 
-    public AlertObject (HashMap<String, String> tesData){
-        populateObject(tesData);
+    public AlertObject (HashMap<String, String> testData){
+        populateObject(testData);
 
     }
 
     //Facem o metoda care sa mapeze valorile din Properties la variabilele din clasa
 
-    private void populateObject(HashMap<String, String> tesData) {
-        for (String Key : tesData.keySet()) {
+    private void populateObject(HashMap<String, String> testData) {
+        for (String Key : testData.keySet()) {
             switch (Key) {
                 case "promptAlertValue":
-                    setPromptAlertValue(tesData.get(Key));
+                    setPromptAlertValue(testData.get(Key));
                     break;
 
 

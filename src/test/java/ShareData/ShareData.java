@@ -1,6 +1,7 @@
 package ShareData;
 
 import Logger.LoggerUtility;
+import ShareData.Browser.BrowserFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -21,12 +22,14 @@ public class ShareData {
 
     public void setUp (){
 
-        driver = new ChromeDriver();
-        driver.get("https://demoqa.com/");
-        driver.manage().window().maximize();
+//        driver = new ChromeDriver();
+//        driver.get("https://demoqa.com/");
+//        driver.manage().window().maximize();
+//
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        LoggerUtility.info("The browser was opened with success");
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        LoggerUtility.info("The browser was opened with success");
+        driver = new BrowserFactory().getBrowserDriver(); //Se fac toate configurarile de mai sus
 
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         jse.executeScript("window.scrollBy(0,450)");

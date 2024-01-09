@@ -14,42 +14,42 @@ public class FormTableObject {
     private String cityvalue;
     private String expectedmessage;
 
-    public FormTableObject (HashMap<String, String> tesData){
-        populateObject(tesData);
+    public FormTableObject (HashMap<String, String> testData){
+        populateObject(testData);
 
     }
 
     //Facem o metoda care sa mapeze valorile din Properties la variabilele din clasa
 
-    private void populateObject(HashMap<String, String> tesData){
-        for(String Key:tesData.keySet()){
+    private void populateObject(HashMap<String, String> testData){
+        for(String Key:testData.keySet()){
             switch (Key){
                 case "firstNameValue":
-                    setFirstNameValue(tesData.get(Key));
+                    setFirstNameValue(testData.get(Key));
                     break;
                 case "lastNameValue":
-                    setLastNameValue(tesData.get(Key));
+                    setLastNameValue(testData.get(Key));
                     break;
                 case "emailvalue":
-                    setEmailvalue(tesData.get(Key));
+                    setEmailvalue(testData.get(Key));
                     break;
                 case "mobilevalue":
-                    setMobilevalue(tesData.get(Key));
+                    setMobilevalue(testData.get(Key));
                     break;
                 case "subjectsvalue":
-                    setSubjectsvalue(tesData.get(Key));
+                    setSubjectsvalue(testData.get(Key));
                     break;
                 case "addressvalue":
-                    setAddressvalue(tesData.get(Key));
+                    setAddressvalue(testData.get(Key));
                     break;
                 case "statevalue":
-                    setStatevalue(tesData.get(Key));
+                    setStatevalue(testData.get(Key));
                     break;
                 case "cityvalue":
-                    setCityvalue(tesData.get(Key));
+                    setCityvalue(testData.get(Key));
                     break;
                 case "expectedmessage":
-                    setExpectedmessage(tesData.get(Key));
+                    setExpectedmessage(testData.get(Key));
                     break;
 
             }

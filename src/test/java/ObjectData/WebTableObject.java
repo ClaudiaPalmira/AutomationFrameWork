@@ -11,31 +11,31 @@ public class WebTableObject {
     private String salaryvalue;
     private String departmentvalue;
 
-    public WebTableObject(HashMap<String, String> tesData){
-        populateObject(tesData);
+    public WebTableObject(HashMap<String, String> testData){
+        populateObject(testData);
 
     }
 
-    private void populateObject (HashMap<String, String> tesData){
-        for (String Key: tesData.keySet()){
+    private void populateObject (HashMap<String, String> testData){
+        for (String Key: testData.keySet()){
             switch (Key){
                 case "firstnamevalue":
-                    setFirstnamevalue(tesData.get(Key));
+                    setFirstnamevalue(testData.get(Key));
                     break;
                 case "lastnamevalue":
-                    setLastnamevalue(tesData.get(Key));
+                    setLastnamevalue(testData.get(Key));
                     break;
                 case "emailvalue":
-                    setEmailvalue(tesData.get(Key));
+                    setEmailvalue(testData.get(Key));
                     break;
                 case "agevalue":
-                    setAgevalue(tesData.get(Key));
+                    setAgevalue(testData.get(Key));
                     break;
                 case "salaryvalue":
-                    setSalaryvalue(tesData.get(Key));
+                    setSalaryvalue(testData.get(Key));
                     break;
                 case "departmentvalue":
-                    setDepartmentvalue(tesData.get(Key));
+                    setDepartmentvalue(testData.get(Key));
                     break;
 
 
