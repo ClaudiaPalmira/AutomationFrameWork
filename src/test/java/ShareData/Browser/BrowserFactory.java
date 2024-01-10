@@ -11,7 +11,7 @@ public class BrowserFactory {
     //automate
 
     public WebDriver getBrowserDriver(){
-        Boolean cicd = Boolean.parseBoolean(System.getProperty("cicd"));
+        Boolean cicd = Boolean.parseBoolean(System.getProperty("cicd")); //accesam dinamic string-ul in pom.xml
         String browser=null;
 
         //Trebuie sa decidem care este tipul de browser in momentul cand rulam pe local si remote
