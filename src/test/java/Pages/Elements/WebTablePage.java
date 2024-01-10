@@ -53,7 +53,8 @@ public class WebTablePage extends BasePage {
 
         Integer actualtablesize = actualEntries.size();
 
-        elementMethods.clickElement(add);
+        elementMethods.clickJsElement(add);
+//        elementMethods.clickElement(add);
         LoggerUtility.info("The user clicks on the add button");
 //        add.click();
 
