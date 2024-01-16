@@ -3,7 +3,7 @@
     <test name = "Sanity Tests" thread-count="3" parallel = "classes">
         <classes>
             <class name="Tests.FormTableTest"/>
-            <class name="Tests.FrameTest"/>
+            <class name="Tests.WebTableTest"/>
         </classes>
     </test>
 </suite>
