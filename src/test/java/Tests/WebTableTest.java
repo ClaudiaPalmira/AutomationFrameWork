@@ -20,6 +20,7 @@ public class WebTableTest extends Hooks {
         WebTableObject webTableObject = new WebTableObject(testData);
 
         HomePage homePage = new HomePage(getDriver());
+        homePage.clickConsent();
         homePage.clickElements();
 
         JavascriptExecutor JS = (JavascriptExecutor) getDriver();

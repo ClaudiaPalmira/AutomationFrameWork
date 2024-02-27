@@ -1,5 +1,6 @@
 package Pages.Elements;
 
+import Database.Queries.WebTable;
 import Logger.LoggerUtility;
 import ObjectData.WebTableObject;
 import Pages.BasePage;
@@ -14,8 +15,11 @@ import java.util.List;
 
 public class WebTablePage extends BasePage {
 
+    private WebTable webTable;
+
     public WebTablePage(WebDriver driver) {
         super(driver);
+        webTable = new WebTable();
     }
 
     @FindBy(xpath = "//div[@class='rt-tbody']/div/div[@class='rt-tr -odd' or @class='rt-tr -even'] ")
@@ -87,6 +91,9 @@ public class WebTablePage extends BasePage {
 //        submit.click();
 
        validateNewEntry(actualtablesize, webTableObject);
+
+       // Inseram datele din IU in BD-ul nostru
+
 
     }
 

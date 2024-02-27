@@ -14,7 +14,10 @@ public class HomePage extends BasePage{
     }
 
     @FindBy(xpath = "//h5[text()='Alerts, Frame & Windows']")
-    public WebElement alertsFrameWindow;
+    private WebElement alertsFrameWindow;
+
+    @FindBy(xpath = "//p[text()='Consent']")
+    private WebElement consent;
 
     @FindBy(xpath = "//h5[text()='Forms']")
     private WebElement forms;
@@ -26,6 +29,10 @@ public class HomePage extends BasePage{
 //    private WebElement widgets;
 
 
+    public void clickConsent(){
+        consent.click();
+        LoggerUtility.info("The user clicks on consent button");
+    }
 
     public void clickAlertWindow() {
         alertsFrameWindow.click();
