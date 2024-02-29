@@ -93,6 +93,8 @@ public class WebTablePage extends BasePage {
        validateNewEntry(actualtablesize, webTableObject);
 
        // Inseram datele din IU in BD-ul nostru
+          webTable.insertWebtableData(webTableObject);
+          LoggerUtility.info("All the testing data were inserted into Webtable with success");
 
 
     }
